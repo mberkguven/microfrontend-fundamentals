@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Component-level Tailwind classes are applied directly in TSX components */
+
+
