@@ -1,0 +1,23 @@
+{
+  "name": "microfrontend-fundamentals",
+  "private": true,
+  "workspaces": [
+    "host",
+    "products",
+    "cart"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  },
+  "scripts": {
+    "dev:host": "npm --workspace host run dev",
+    "dev:products": "npm --workspace products run dev",
+    "dev:cart": "npm --workspace cart run dev",
+    "dev": "concurrently -k \"npm:dev:host\" \"npm:dev:products\" \"npm:dev:cart\"",
+    "build": "npm -w host run build && npm -w products run build && npm -w cart run build",
+    "start": "npm run dev"
+  }
+}
