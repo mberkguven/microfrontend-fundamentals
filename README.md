@@ -2,6 +2,8 @@
 
 A minimal e-commerce microfrontend demo built with React 18, TypeScript, Webpack 5 Module Federation, Tailwind CSS, and a shared Zustand store.
 
+<img src=".github/screenshot.png" alt="Screenshot">
+
 ### Apps
 
 - Host (3000): Layout shell. Exposes shared Zustand store `host/store`.
