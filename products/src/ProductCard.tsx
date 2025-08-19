@@ -1,12 +1,7 @@
 import React from "react";
 // @ts-ignore
 import { useStore } from "host/store";
-
-type Product = {
-  id: string;
-  name: string;
-  price: number;
-};
+import type { Product } from "../../types";
 
 type Props = {
   product: Product;

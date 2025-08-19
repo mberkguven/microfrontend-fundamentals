@@ -1,16 +1,10 @@
 import React from "react";
 // @ts-ignore
 import { useStore } from "host/store";
-
-type Item = {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-};
+import type { CartItem } from "../../types";
 
 type Props = {
-  item: Item;
+  item: CartItem;
 };
 
 export default function CartItem({ item }: Props) {
