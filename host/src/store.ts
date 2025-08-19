@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import type { Store } from "../../types";
+import { calculateTotal } from "../../helpers";
 
 const initializer = (set: any, get: any): Store => ({
   products: [
@@ -21,13 +22,13 @@ const initializer = (set: any, get: any): Store => ({
             i.id === product.id ? { ...i, quantity: i.quantity + 1 } : i
           )
         : [...state.cart.items, { ...product, quantity: 1 }];
-      const total = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+      const total = calculateTotal(items);
       return { cart: { items, total } };
     }),
   removeFromCart: (id) =>
     set((state) => {
       const items = state.cart.items.filter((i) => i.id !== id);
-      const total = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+      const total = calculateTotal(items);
       return { cart: { items, total } };
     }),
   updateQuantity: (id, quantity) =>
@@ -35,7 +36,7 @@ const initializer = (set: any, get: any): Store => ({
       const items = state.cart.items
         .map((i) => (i.id === id ? { ...i, quantity } : i))
         .filter((i) => i.quantity > 0);
-      const total = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+      const total = calculateTotal(items);
       return { cart: { items, total } };
     }),
 });

@@ -2,6 +2,7 @@ import React from "react";
 // @ts-ignore
 import { useStore } from "host/store";
 import type { CartItem } from "../../types";
+import { formatPrice } from "../../helpers";
 
 type Props = {
   item: CartItem;
@@ -15,7 +16,7 @@ export default function CartItem({ item }: Props) {
       <div>
         <div className="font-medium">{item.name}</div>
         <div className="text-sm text-gray-500">
-          ${(item.price * item.quantity).toFixed(2)}
+          {formatPrice(item.price * item.quantity)}
         </div>
       </div>
       <div className="flex items-center gap-2">
